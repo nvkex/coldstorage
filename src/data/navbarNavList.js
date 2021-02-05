@@ -1,7 +1,7 @@
 export const navlist = [
     { 
         title : "Home",
-        route : "/home" 
+        route : "/" 
     },
     { 
         title : "Anime",
