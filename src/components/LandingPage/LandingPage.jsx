@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from '../Navbar/Navbar'
 import classes from './LandingPage.module.css'
+import { rootCategories } from '../../data/categoryData'
 
 class LandingPage extends Component {
     render() {
@@ -13,58 +14,23 @@ class LandingPage extends Component {
                 <Navbar />
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-4">
-                            <div className={classes.card}>
-                                <a href="/anime">
-                                    <img src={`${process.env.PUBLIC_URL}/assets/images/category-1.jpg`} alt="category_img" />
-                                </a>
-                                <div className={classes.details}>
-                                    <h5 className="text-center">
-                                        <a href="/anime">Anime</a>
-                                    </h5>
-                                    <div></div>
+                        {
+                            rootCategories.map(catgry => (
+                                <div className="col-lg-4" key={catgry.title}>
+                                    <div className={classes.card}>
+                                        <a href={catgry.route}>
+                                            <img src={`${process.env.PUBLIC_URL}${catgry.imgLink}`} alt="category_img" />
+                                        </a>
+                                        <div className={classes.details}>
+                                            <h5 className="text-center">
+                                                <a href={catgry.route}>{catgry.title}</a>
+                                            </h5>
+                                            <div></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4">
-                            <div className={classes.card}>
-                                <a href = "/movies">
-                                    <img src={`${process.env.PUBLIC_URL}/assets/images/category-2.jpg`} alt="category_img"/>
-                                </a>
-                                <div className={classes.details}>
-                                    <h5 className="text-center">
-                                        <a href="/movies">Movies</a>
-                                    </h5>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4">
-                            <div className={classes.card}>
-                                <a href = "/torrents">
-                                    <img src={`${process.env.PUBLIC_URL}/assets/images/category-3.jpg`} alt="category_img"/>
-                                </a>
-                                <div className={classes.details}>
-                                    <h5 className="text-center">
-                                        <a href="/torrents">Torrents</a>
-                                    </h5>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4">
-                            <div className={classes.card}>
-                                <a href = "/tv">
-                                    <img src={`${process.env.PUBLIC_URL}/assets/images/category-4.webp`} alt="category_img"/>
-                                </a>
-                                <div className={classes.details}>
-                                    <h5 className="text-center">
-                                        <a href="/tv">TV Shows</a>
-                                    </h5>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>

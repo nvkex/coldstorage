@@ -1,15 +1,39 @@
 import React, { Component } from 'react'
 import classes from './Navbar.module.css'
-import { navlist } from '../../data/navbar_nav_list.js'
+import { navlist } from '../../data/navbarNavList.js'
+import { Link, withRouter } from 'react-router-dom';
 
 class Navbar extends Component {
 
+    constructor(){
+        super()
+        this.state = {
+            active: null
+        }
+    }
+
+    componentDidMount(){
+
+        // Get active navbar tag from url
+        var path = "/"+this.props.location.pathname.split('/')[1]
+        if(this.state.active == null || this.state.active !== path){
+            this.setState({active: path})
+        }
+    }
+
     render() {
+
         return (
             <div className={`${classes.navbar} shadow-sm`}>
                 {
                     navlist.map(nav => (
-                        <a className={nav.title === 'Home'?classes.active: null} key={nav.title} href={nav.route}>{nav.title}</a>
+                        <Link 
+                            className={nav.route === this.state.active ?classes.active: null}
+                            key={nav.title} 
+                            to={ nav.route}
+                            onClick={() => this.setState({active: nav.route})}>
+                                {nav.title}
+                        </Link>
                     ))
                 }
             </div>
@@ -17,4 +41,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar
+export default withRouter(Navbar);
