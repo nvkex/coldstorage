@@ -1,0 +1,34 @@
+a{
+    text-decoration: none;
+}
+
+.card{
+    border: 1px solid rgb(170, 170, 170);
+    margin: 10px;
+    background-color: white;
+}
+
+.card a img{
+    transition: 0.5s;
+    width: 100%;
+    height: auto;
+}
+.card a img:hover{
+    opacity: 0.8;
+}
+
+.card .details{
+    padding: 6px 10px;
+}
+
+.card .details a{
+    color: black;
+    text-transform: uppercase;
+}
+.card .details a h5{
+    margin: 0;
+}
+
+.card .details a:hover{
+    color: rgb(56, 56, 56);
+}
