@@ -1,0 +1,24 @@
+.navbar {
+  overflow: hidden;
+  background-image: linear-gradient(to bottom,#333 0%, rgb(40, 40, 40) 100%);
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #a8a8a8;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navbar a:hover {
+  background-color: #93cfdd;
+  color: #333;
+}
+
+.navbar a.active {
+  background-color: #6a89cc;
+  color: white;
+}
