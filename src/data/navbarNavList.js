@@ -5,18 +5,18 @@ export const navlist = [
     },
     { 
         title : "Anime",
-        route : "/anime" 
+        route : "/c/anime" 
     },
     { 
         title : "Torrents",
-        route : "/torrents" 
+        route : "/c/torrents" 
     },
     { 
         title : "Movies",
-        route : "/movies" 
+        route : "/c/movies" 
     },
     { 
         title : "TV Shows",
-        route : "/tv" 
+        route : "/c/tv" 
     }
 ]

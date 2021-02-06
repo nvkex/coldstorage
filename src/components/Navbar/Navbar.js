@@ -15,7 +15,8 @@ class Navbar extends Component {
     componentDidMount(){
 
         // Get active navbar tag from url
-        var path = "/"+this.props.location.pathname.split('/')[1]
+        var pathTree = this.props.location.pathname.split('/')
+        var path = "/"+pathTree[1]+"/"+pathTree[2]
         if(this.state.active == null || this.state.active !== path){
             this.setState({active: path})
         }
