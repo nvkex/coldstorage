@@ -1,14 +1,12 @@
 import LandingPage from './components/LandingPage/LandingPage';
 import { Switch, Route } from 'react-router-dom';
+import LayoutOne from './containers/LayoutOne';
 
 function App() {
   return (
     <div>
       <Switch>
-          <Route exact path="/anime" component={LandingPage} />
-          <Route exact path="/tv" component={LandingPage} />
-          <Route exact path="/torrents" component={LandingPage} />
-          <Route exact path="/movies" component={LandingPage} />
+          <Route path="/c" component={LayoutOne} />
           <Route exact path="/" component={LandingPage} />
       </Switch>
     </div>
