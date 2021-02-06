@@ -1,0 +1,26 @@
+.page{
+    background-color: white;
+    margin: 20px 0;
+}
+
+.contentList{
+    margin:0;
+}
+
+.hdr{
+    font-size: 14px;
+    margin:0;
+    position: relative;
+}
+
+.tableDesc{
+    font-size: 14px;
+}
+
+.tableDesc a{
+    color: #6a89cc;
+}
+
+.tableDesc a:hover{
+    color: #38486b;
+}
