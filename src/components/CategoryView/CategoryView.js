@@ -19,7 +19,7 @@ class CategoryView extends Component {
                             <tr>
                                 <td className={`${classes.tableDesc} text-center`}>Sub</td>
                                 <td className={`${classes.tableDesc} `}>
-                                    <a href="#">Attack on Titan (Season 1)</a>
+                                    <a href="/id?q=123">Attack on Titan (Season 1)</a>
                                 </td>
                                 <td className={`${classes.tableDesc}  text-center`}>1.1GB</td>
                                 <td className={`${classes.tableDesc}  text-center`}>2020-02-12</td>

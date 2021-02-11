@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Navbar from '../components/Navbar/Navbar'
-import CategoryView from '../components/CategoryView/CategoryView'
 
 class LayoutOne extends Component {
   render() {
@@ -8,7 +7,7 @@ class LayoutOne extends Component {
       <div>
           <Navbar />
           <div className="container">
-            <CategoryView />
+            {this.props.children}
           </div>
       </div>
     )
