@@ -24,3 +24,7 @@
 .tableDesc a:hover{
     color: #38486b;
 }
+
+.subCat{
+    text-transform: capitalize;
+}
