@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classes from './Navbar.module.css'
 import { navlist } from '../../data/navbarNavList.js'
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class Navbar extends Component {
 
@@ -28,13 +28,12 @@ class Navbar extends Component {
             <div className={`${classes.navbar} shadow-sm`}>
                 {
                     navlist.map(nav => (
-                        <Link 
+                        <a 
                             className={nav.route === this.state.active ?classes.active: null}
                             key={nav.title} 
-                            to={ nav.route}
-                            onClick={() => this.setState({active: nav.route})}>
+                            href={ nav.route}>
                                 {nav.title}
-                        </Link>
+                        </a>
                     ))
                 }
             </div>
