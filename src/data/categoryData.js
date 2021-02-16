@@ -19,4 +19,9 @@ export const rootCategories = [
         route: "/c/torrents",
         imgLink: "/assets/images/category-4.webp"
     },
+    {
+        title: "All",
+        route: "/c/all",
+        imgLink: "/assets/images/category-5.webp"
+    },
 ]

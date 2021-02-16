@@ -1,6 +1,6 @@
 export const navlist = [
     { 
-        title : "Home",
+        title : "Animayzing",
         route : "/" 
     },
     { 
@@ -18,5 +18,9 @@ export const navlist = [
     { 
         title : "TV Shows",
         route : "/c/tv" 
+    },
+    { 
+        title : "All",
+        route : "/c/all" 
     }
 ]
