@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import classes from './ItemView.module.css'
 import axios from 'axios'
+import Cryptr from 'cryptr';
+import { Redirect } from 'react-router';
 
 class ItemView extends Component {
     constructor(props) {
@@ -16,7 +18,6 @@ class ItemView extends Component {
         // Get category from url
         var search = this.props.location.search.slice(1)
         var q = search.split('=')[1]
-        console.log(q)
         if (this.state.item == null) {
             axios.get(`http://localhost:3001/item/${q}`)
                 .then(res => {
@@ -26,6 +27,21 @@ class ItemView extends Component {
                     console.log(err)
                 })
         }
+    }
+
+    updateDownload(slug){
+        const cryptr = new Cryptr('nvkex');
+        const body = {
+            itemId:slug,
+            downloads: true,
+            views:false,
+            token: cryptr.encrypt(new Date().getTime().toString())
+        }
+        axios.post('http://localhost:3001/update', body)
+        .then(res => {
+        })
+        .catch(err => {
+        })
     }
 
     render() {
@@ -126,7 +142,7 @@ class ItemView extends Component {
                                                                 <path d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198V11zM3.655 4.26L1.592 8.043C1.724 8.014 1.86 8 2 8h12c.14 0 .276.014.408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z" />
                                                             </svg>
                                                             <span className={classes.iconText}>
-                                                                {this.state.item.size}
+                                                                {this.state.item.size}GB
                                                             </span>
                                                         </td>
                                                     </tr>
@@ -146,8 +162,7 @@ class ItemView extends Component {
                                                         <th className={classes.infoHead} style={{ width: '110px' }}>Quality</th>
                                                         <td className={classes.infoDetail}>
                                                             <span className={classes.tagList}>
-                                                                <span className={classes.tag}>1080p</span>
-                                                                <span className={classes.tag}>720p</span>
+                                                                <span className={classes.tag}>{this.state.item.quality}</span>
                                                             </span>
                                                         </td>
                                                     </tr>
@@ -167,43 +182,71 @@ class ItemView extends Component {
                                 </div>
                                 <div className={classes.section}>
                                     <h4>MediaInfo</h4>
-                                    <p className={classes.mediaInfo}>
-                                        <pre>
-                                            <strong>General</strong> : 
+                                    <div className={classes.mediaInfo}>
+                                        <div>
+                                            <strong>GENERAL</strong> 
+                                            {this.state.item.mediaInfo.general.split('|').map((mInfo,i) => (
+                                                <div key={`general-${i}`}>{mInfo}</div>
+                                            ))}
                                             <br />
-                                            <strong>Video</strong> : 
+                                            <strong>VIDEO</strong>
+                                            {this.state.item.mediaInfo.video.split('|').map((mInfo,i) => (
+                                                <div key={`video-${i}`}>{mInfo}</div>
+                                            ))}
                                             <br />
-                                            <strong>Audio</strong> : 
+                                            <strong>AUDIO</strong>
+                                            {this.state.item.mediaInfo.audio.split('|').map((mInfo,i) => (
+                                                <div key={`audio-${i}`}>{mInfo}</div>
+                                            ))}
                                             <br />
-                                            <strong>Subtitle</strong> : 
-                                        </pre>
-                                    </p>
+                                            <strong>SUBTITLE</strong>
+                                            {this.state.item.mediaInfo.subs.split('|').map((mInfo,i) => (
+                                                <div key={`subs-${i}`}>{mInfo}</div>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className={classes.section}>
                                     <h4>Screenshots</h4>
-                                    <p>
-                                        .
-                                    </p>
+                                    <div>
+                                        {
+                                            this.state.item.screenshots.map((image, i) => (
+                                                <a href={image.link} target="_blank" rel="noreferrer" key={`screenshot-${i}`} style={{padding:'0 2px'}}>
+                                                    <img src={image.image} alt={i} border="0" className="img-fluid" />
+                                                </a>
+                                            ))
+                                        }
+                                    </div>
                                 </div>
                                 <div className={classes.section}>
                                     <h4>Download</h4>
-                                    <p>
-                                        .
-                                    </p>
+                                    <div className="text-center">
+                                        {
+                                            this.state.item.downloadLinks.map((link, i) => (
+                                                <a 
+                                                    onClick={(e) => this.updateDownload(this.state.item.slug)} 
+                                                    href={link.link} key={`download-${i}`} 
+                                                    target="_blank" rel="noreferrer" 
+                                                    className={`shadow-sm ${classes.downloadBtn}`}>
+                                                    {link.host}
+                                                </a>
+                                            ))
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     ) :
-                    this.state.loading ? (
-                        <div>
-                            Loading....
-                        </div>
-                    ) :
-                    (
-                        <div>
-                            Page not found 404
-                        </div>
-                    )
+                        this.state.loading ? (
+                            <div className={classes.spinnerContainer}>
+                               <div class="lds-facebook"><div></div><div></div><div></div></div>
+                            </div>
+                        ) :
+                            (
+                                <div>
+                                    <Redirect to="/404" />
+                                </div>
+                            )
                 }
             </div>
         )
