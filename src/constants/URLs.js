@@ -1,0 +1,1 @@
+export const BACKEND_BASE_URL ='https://animayzing-backend-v1.herokuapp.com/'
