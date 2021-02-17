@@ -3,6 +3,7 @@ import classes from './ItemView.module.css'
 import axios from 'axios'
 import Cryptr from 'cryptr';
 import { Redirect } from 'react-router';
+import {BACKEND_BASE_URL} from '../../../constants/URLs'
 
 class ItemView extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class ItemView extends Component {
         var search = this.props.location.search.slice(1)
         var q = search.split('=')[1]
         if (this.state.item == null) {
-            axios.get(`http://localhost:3001/item/${q}`)
+            axios.get(`${BACKEND_BASE_URL}item/${q}`)
                 .then(res => {
                     this.setState({ item: res.data.data[0], loading: false })
                 })
@@ -37,7 +38,7 @@ class ItemView extends Component {
             views:false,
             token: cryptr.encrypt(new Date().getTime().toString())
         }
-        axios.post('http://localhost:3001/update', body)
+        axios.post(`${BACKEND_BASE_URL}update`, body)
         .then(res => {
         })
         .catch(err => {
@@ -179,6 +180,7 @@ class ItemView extends Component {
                                     <p>
                                         {this.state.item.summary}
                                     </p>
+                                    <a href={this.state.item.ref} target="_blank" rel="noreferrer">{this.state.item.ref}</a>
                                 </div>
                                 <div className={classes.section}>
                                     <h4>MediaInfo</h4>
