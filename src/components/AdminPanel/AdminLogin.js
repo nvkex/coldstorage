@@ -1,10 +1,27 @@
+import axios from 'axios';
 import React, { Component } from 'react'
+import { BACKEND_BASE_URL } from '../../constants/URLs';
 
 class AdminLogin extends Component {
     
     login(e){
         e.preventDefault()
+        const user = document.querySelector('#user').value;
+        const pass = document.querySelector('#pass').value;
         
+        axios.post(`${BACKEND_BASE_URL}admin/login`, { user, pass })
+        .then(res => {
+            if(res.data.success){
+                var data = {...res.data}
+                data.iat = new Date().getTime()
+                localStorage.setItem("animayzingAdminInfo", JSON.stringify(data))
+                window.location.href = '/admin'
+            }
+            
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render() {
