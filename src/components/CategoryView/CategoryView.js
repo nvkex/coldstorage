@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import classes from './CategoryView.module.css'
 import axios from 'axios'
 import { BACKEND_BASE_URL } from '../../constants/URLs'
+import { Link } from 'react-router-dom'
 
 class CategoryView extends Component {
 
@@ -112,7 +113,7 @@ class CategoryView extends Component {
                                             <tr key={item.slug}>
                                                 <td className={`${classes.tableDesc} ${classes.subCat} text-center`}>{item.category}</td>
                                                 <td className={`${classes.tableDesc} `}>
-                                                    <a href={`/id?q=${item.slug}`}>{item.title}</a>
+                                                    <Link to={`/id?q=${item.slug}`}>{item.title}</Link>
                                                 </td>
                                                 <td className={`${classes.tableDesc}  text-center`}>
                                                     {item.size}GB

@@ -4,9 +4,10 @@ import LayoutOne from './containers/LayoutOne';
 import ItemView from './components/common/ItemView/ItemView';
 import CategoryView from './components/CategoryView/CategoryView';
 import PageNotFound from './components/common/404/404';
-import AdminLogin from './components/AdminPanel/AdminLogin';
-import AdminDashboard from './components/AdminPanel/Dashboard';
-import NewEntryForm from './components/AdminPanel/NewEntryForm'
+import AdminPanel from './components/AdminPanel/AdminPanel';
+import UserRoutes from './components/User/User';
+
+
 
 function App() {
   return (
@@ -15,10 +16,8 @@ function App() {
         <Route exact path="/" component={LandingPage} />
         <LayoutOne>
           <Switch>
-            <Route exact path="/admin/login" component = {AdminLogin} />
-            <Route exact path="/admin/new-entry" component = {NewEntryForm} />
-            <Route exact path="/admin/all-entries" component = {NewEntryForm} />
-            <Route exact path="/admin" component = {AdminDashboard} />
+            <Route path="/admin" component = {AdminPanel} />
+            <Route path="/user" component={UserRoutes} />
             <Route path="/c" component={CategoryView} />
             <Route path="/id" component={ItemView} />
             <Route path="/404" component={PageNotFound} />

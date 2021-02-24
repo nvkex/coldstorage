@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { BACKEND_BASE_URL } from '../../constants/URLs'
 import classes from './Dashboard.module.css'
 
@@ -42,8 +43,8 @@ class AdminDashboard extends Component {
                             <div className={classes.dashboard}>
                                 <div className={classes.header}>Admin Panel</div>
                                 <div className={classes.contentCntnr}>
-                                    <a href="/admin/new-entry" className={classes.Btn}>New Entry</a>
-                                    <a href="/admin/all-entries" className={classes.Btn}>All Entries</a>
+                                    <Link to="/admin/new-entry" className={classes.Btn}>New Entry</Link>
+                                    <Link to="/admin/all-entries" className={classes.Btn}>All Entries</Link>
                                 </div>
 
                             </div>
