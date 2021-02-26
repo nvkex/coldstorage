@@ -17,6 +17,10 @@
   font-size: 14px;
 }
 
+.navbar a.account {
+  float: right;
+}
+
 .navbar a:hover {
   background-color: #93cfdd;
   color: #333;
