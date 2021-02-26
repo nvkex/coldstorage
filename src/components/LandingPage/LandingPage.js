@@ -9,8 +9,8 @@ class LandingPage extends Component {
         return (
             <div>
                 <div className="container text-center">
-                    <h3 className="display-4">Animayzing</h3>
-                    <small className="text-muted">Google Drive Links and Torrents for 720p, 1080p and 4K Anime, Movies & TV Shows.</small>
+                    <h3 className="display-4 mb-0">Cold Storage</h3>
+                    <small className="text-muted">Non-profit library for public documents, web pages, videos, audios, music, books and more.</small>
                 </div>
                 <Navbar />
                 <div className="container">
