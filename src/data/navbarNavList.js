@@ -1,22 +1,30 @@
 export const navlist = [
     { 
-        title : "Animayzing",
-        route : "/" 
-    },
-    { 
-        title : "Anime",
+        title : "Documents",
         route : "/c/anime" 
     },
     { 
-        title : "Torrents",
+        title : "Images",
+        route : "/c/tv" 
+    },
+    { 
+        title : "Video",
         route : "/c/torrents" 
     },
     { 
-        title : "Movies",
+        title : "Audio",
         route : "/c/movies" 
     },
     { 
-        title : "TV Shows",
+        title : "Music",
+        route : "/c/tv" 
+    },
+    { 
+        title : "Books",
+        route : "/c/tv" 
+    },
+    { 
+        title : "Web Pages",
         route : "/c/tv" 
     },
     { 
