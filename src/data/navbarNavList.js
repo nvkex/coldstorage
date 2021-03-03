@@ -1,31 +1,31 @@
 export const navlist = [
     { 
         title : "Documents",
-        route : "/c/anime" 
+        route : "/c/doc" 
     },
     { 
         title : "Images",
-        route : "/c/tv" 
+        route : "/c/image" 
     },
     { 
         title : "Video",
-        route : "/c/torrents" 
+        route : "/c/video" 
     },
     { 
         title : "Audio",
-        route : "/c/movies" 
+        route : "/c/audio" 
     },
     { 
         title : "Music",
-        route : "/c/tv" 
+        route : "/c/music" 
     },
     { 
         title : "Books",
-        route : "/c/tv" 
+        route : "/c/book" 
     },
     { 
         title : "Web Pages",
-        route : "/c/tv" 
+        route : "/c/web-page" 
     },
     { 
         title : "All",

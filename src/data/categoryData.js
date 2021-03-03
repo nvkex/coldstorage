@@ -1,27 +1,42 @@
 export const rootCategories = [
     {
-        title: "Anime",
-        route: "/c/anime",
-        imgLink: "/assets/images/category-1.webp"
+        title : "Documents",
+        route : "/c/doc",
+        imgLink: "/assets/images/category-1.svg"
     },
     {
-        title: "Movies",
-        route: "/c/movies",
-        imgLink: "/assets/images/category-2.webp"
+        title : "Images",
+        route : "/c/image" ,
+        imgLink: "/assets/images/category-2.svg"
     },
     {
-        title: "TV Shows",
-        route: "/c/tv",
-        imgLink: "/assets/images/category-3.webp"
+        title : "Video",
+        route : "/c/video" ,
+        imgLink: "/assets/images/category-3.svg"
     },
     {
-        title: "Torrents",
-        route: "/c/torrents",
-        imgLink: "/assets/images/category-4.webp"
+        title : "Audio",
+        route : "/c/audio",
+        imgLink: "/assets/images/category-4.svg"
     },
     {
-        title: "All",
-        route: "/c/all",
-        imgLink: "/assets/images/category-5.webp"
+        title : "Music",
+        route : "/c/music" ,
+        imgLink: "/assets/images/category-5.svg"
+    },
+    {
+        title : "Books",
+        route : "/c/book" ,
+        imgLink: "/assets/images/category-6.svg"
+    },
+    {
+        title : "Web Pages",
+        route : "/c/web-page",
+        imgLink: "/assets/images/category-7.svg"
+    },
+    {
+        title : "All",
+        route : "/c/all",
+        imgLink: "/assets/images/category-8.svg"
     },
 ]
