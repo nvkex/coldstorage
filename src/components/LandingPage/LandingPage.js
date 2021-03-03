@@ -14,7 +14,7 @@ class LandingPage extends Component {
                 </div>
                 <Navbar />
                 <div className="container">
-                    <div className="row">
+                    <div className="row justify-content-center my-4">
                         {
                             rootCategories.map(catgry => (
                                 <SimpleCard category={catgry} key={catgry.title}/>
