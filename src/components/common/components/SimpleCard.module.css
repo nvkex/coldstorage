@@ -3,22 +3,28 @@ a{
 }
 
 .card{
-    border: 1px solid rgb(170, 170, 170);
-    margin: 10px;
+    border-radius: 4px;
+    margin: 10px auto;
     background-color: white;
+    max-width:200px;
+}
+
+.card a{
+    word-wrap: break-word;
 }
 
 .card a img{
+    padding: 60px;
     transition: 0.5s;
     width: 100%;
     height: auto;
 }
 .card a img:hover{
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 .card .details{
-    padding: 6px 10px;
+    padding: 10px;
 }
 
 .card .details a{
