@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import classes from './Auth.module.css'
@@ -15,9 +16,21 @@ class UserSignup extends Component {
   }
 
 
-  signup(e) {
+  signup = (e) => {
     e.preventDefault();
+    const body = {
+      name: 'ADMIN',
+      email: this.state.email,
+      username: this.state.username,
+      password: this.state.password,
 
+    }
+    axios.post('http://localhost:3001/auth/signup',body).then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
 
   }
 
