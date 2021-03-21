@@ -1,6 +1,8 @@
 import classes from './Auth.module.css'
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { loginUser } from '../../actions/AuthActions';
 
 class UserLogin extends Component {
 
@@ -12,7 +14,7 @@ class UserLogin extends Component {
     }
   }  
 
-  login(e) {
+  login= (e) => {
     e.preventDefault();
     
     // Validation
@@ -20,7 +22,13 @@ class UserLogin extends Component {
       console.log("Error")
     }
     else{
-      //API Request.
+      this.props.login({username:this.state.username , password:this.state.password})
+    }
+  }
+
+  componentDidMount(){
+    if(this.props.user){
+      window.location.href = '/'
     }
   }
 
@@ -77,4 +85,14 @@ class UserLogin extends Component {
   }
 }
 
-export default UserLogin
+const mapStateToProps = (state) => {
+  return {
+      user: state.userInfo
+  }
+}
+
+const mapDispatchToProps = {
+  login: loginUser
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserLogin)
